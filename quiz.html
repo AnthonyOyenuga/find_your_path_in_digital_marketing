@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Find Your Digital Marketing Path</title>
+  <style>
+    :root {
+      --primary: #1a8f3c;
+      --bg: #f4fdf5;
+      --result-bg: #d7f8e1;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+      animation: fadeInBody 1s ease-in;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      color: var(--primary);
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .question {
+      margin-bottom: 1.5rem;
+      animation: fadeInQuestion 0.6s ease forwards;
+    }
+
+    @keyframes fadeInQuestion {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    select, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: var(--primary);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #147732;
+      transform: scale(1.02);
+    }
+
+    .result {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background-color: var(--result-bg);
+      border-left: 5px solid var(--primary);
+      display: none;
+      animation: slideIn 0.8s ease forwards;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .cta {
+      margin-top: 1rem;
+      background: #fff;
+      padding: 0.75rem;
+      border-left: 4px solid #1a8f3c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Find Your Digital Marketing Path</h1>
+
+  <div class="question">
+    <label for="strength">1. Which of these describes your strength?</label>
+    <select id="strength">
+      <option value="">-- Select --</option>
+      <option value="ads">Running or analyzing ads</option>
+      <option value="social">Creating content for social media</option>
+      <option value="seo">Ranking websites or apps</option>
+      <option value="email">Writing and sending emails</option>
+      <option value="data">Working with analytics or dashboards</option>
+      <option value="ecom">Selling physical or digital products</option>
+    </select>
+  </div>
+
+  <div class="question">
+    <label for="goal">2. What’s your short-term goal?</label>
+    <select id="goal">
+      <option value="">-- Select --</option>
+      <option value="freelance">Freelance and earn online</option>
+      <option value="job">Get a digital marketing job</option>
+      <option value="business">Grow my own business</option>
+    </select>
+  </div>
+
+  <div class="question">
+    <label for="interest">3. What excites you most?</label>
+    <select id="interest">
+      <option value="">-- Select --</option>
+      <option value="ppc">Launching paid campaigns</option>
+      <option value="smm">Creating content and building a brand</option>
+      <option value="funnels">Mapping out funnels that convert</option>
+      <option value="ecom">Selling via Shopify, Amazon, or WhatsApp</option>
+      <option value="seo">Ranking on Google/App Store</option>
+      <option value="email">Writing emails that drive sales</option>
+      <option value="analytics">Interpreting dashboards or reports</option>
+    </select>
+  </div>
+
+  <button onclick="getResult()">Show My Path</button>
+
+  <div class="result" id="resultBox"></div>
+
+  <script>
+    function getResult() {
+      const strength = document.getElementById("strength").value;
+      const goal = document.getElementById("goal").value;
+      const interest = document.getElementById("interest").value;
+
+      let result = "";
+
+      if (interest === "ppc" || strength === "ads") {
+        result = `<strong>📊 Your Path: Paid Advertising (PPC / SEM / Paid Social)</strong><br>
+        You’re wired for results — perfect for paid social, Google Ads, or programmatic campaigns.<br><br>
+        <em>Start with:</em> Meta Blueprint, Google Ads Cert, spy tools like Ad Library.<br><br>
+        <div class="cta"><strong>📞 Want expert guidance?</strong><br>Connect with <strong>Anthony Oyenuga</strong>, a PPC/SEM specialist who's helped businesses grow with profitable campaigns.</div>`;
+      }
+      else if (interest === "funnels" || strength === "ecom") {
+        result = `<strong>🔁 Your Path: Sales Funnels & Conversion Strategy</strong><br>
+        You think like a strategist — ideal for building customer journeys that convert. Funnels tie email, ads, and landing pages together.<br><br>
+        <em>Start with:</em> Systeme.io, ClickFunnels, Alex Hormozi YouTube.<br><br>
+        <div class="cta"><strong>📞 Need real-world mentorship?</strong><br>Anthony Oyenuga is a funnel + e-commerce specialist. Book a free clarity session and skip months of trial-and-error.</div>`;
+      }
+      else if (interest === "ecom") {
+        result = `<strong>🛒 Your Path: E-commerce Marketing</strong><br>
+        You’re hands-on and product-minded — great for Amazon, Shopify, or WhatsApp selling.<br><br>
+        <em>Start with:</em> Shopify tutorials, product research tools, and basic pixel tracking.<br><br>
+        <div class="cta"><strong>🎯 Learn from someone who’s done it:</strong><br>Anthony has scaled e-com offers with paid traffic + funnels. Message him for tips or mentorship.</div>`;
+      }
+      else if (interest === "seo" || strength === "seo") {
+        result = `<strong>🔍 Your Path: SEO & ASO</strong><br>
+        You enjoy visibility and structure — great for driving free organic traffic through search.<br><br>
+        <em>Start with:</em> Ubersuggest, Ahrefs Blog, Google Search Console.<br><br>
+        <div class="cta">Need help understanding SEO tools or building backlinks? Try SEO-focused communities or beginner YouTube series.</div>`;
+      }
+      else if (interest === "email" || strength === "email") {
+        result = `<strong>📧 Your Path: Email Marketing</strong><br>
+        You love writing and persuasion — perfect for welcome sequences, newsletters, and automations.<br><br>
+        <em>Start with:</em> Mailchimp, Systeme.io, ConvertKit + email copy frameworks.<br><br>
+        <div class="cta">Practice by writing for a small business or running your own newsletter.</div>`;
+      }
+      else if (interest === "smm" || strength === "social") {
+        result = `<strong>📱 Your Path: Social Media Marketing</strong><br>
+        You’re creative, visual, and trend-savvy — great for Instagram, TikTok, or LinkedIn content strategy.<br><br>
+        <em>Start with:</em> Canva, Meta Business Suite, scheduling tools.<br><br>
+        <div class="cta">Start by creating content for a niche you care about — build proof and attract clients or employers.</div>`;
+      }
+      else if (interest === "analytics" || strength === "data") {
+        result = `<strong>📊 Your Path: Analytics & BI</strong><br>
+        You enjoy insight and tracking — perfect for marketing dashboards, reporting, and CRO.<br><br>
+        <em>Start with:</em> Google Analytics 4, Looker Studio, Hotjar.<br><br>
+        <div class="cta">Track a personal site or run mock reports to build your portfolio.</div>`;
+      }
+      else {
+        result = `<strong>🤔 Oops! Not enough info.</strong><br>
+        Please answer all 3 questions to get your personalized path.`;
+      }
+
+      const resultBox = document.getElementById("resultBox");
+      resultBox.innerHTML = result;
+      resultBox.style.display = "block";
+      resultBox.style.animation = "slideIn 0.8s ease forwards";
+    }
+  </script>
+</body>
+</html>
